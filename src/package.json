@@ -1,0 +1,27 @@
+{
+  "name": "numerologia",
+  "version": "1.0.0",
+  "description": "Esto es un proyecto de numerologia guiado con ia para guiar a la gente en un camino mas espiritual",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "div": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/XleonGamesX/Numerologia.git"
+  },
+  "keywords": [
+    "numerologia"
+  ],
+  "author": "Santiago León, Jhon Pimiento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/XleonGamesX/Numerologia/issues"
+  },
+  "homepage": "https://github.com/XleonGamesX/Numerologia#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
