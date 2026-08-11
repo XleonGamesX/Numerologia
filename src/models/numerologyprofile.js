@@ -1,3 +1,4 @@
+
 const mongoose = require('mongoose');
 
 const numerologyProfileSchema = new mongoose.Schema({
@@ -5,7 +6,7 @@ const numerologyProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }, // <-- Revisa si te faltaba esta coma
+    }, 
     numero_vida: {
         type: Number,
         required: true
@@ -23,3 +24,15 @@ const numerologyProfileSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('NumerologyProfile', numerologyProfileSchema);
+
+const mongoose = requiere("mongoose");
+const numerologyprofileschema = new mongoose.schema(
+    {
+        user: {
+            type: mongoose.Shema.types.objectId,
+            ref: "user",
+            required: true,
+        }
+    }
+);
+

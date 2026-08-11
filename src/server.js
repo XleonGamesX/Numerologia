@@ -1,15 +1,18 @@
 require('dotenv').config(); // <-- ¡Muy importante que esté en la línea 1!
 const express = require('express');
 const connectDB = require('./config/database'); // Asegúrate de que la ruta coincida con el nombre de tu archivo
-const numerologyRoutes = require('./routes/numerology.routes');
+
 // Inicializar la aplicación de Express
 const app = express();
+
 // Establecer la conexión a MongoDB Atlas
 connectDB();
 
 // Middleware fundamental para la API-first
 app.use(express.json());
+
 app.use('/api/v1/numerology', numerologyRoutes);
+
 // Ruta base
 app.get('/', (req, res) => {
     res.status(200).json({ 
