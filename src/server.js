@@ -1,7 +1,7 @@
 require('dotenv').config(); // <-- ¡Muy importante que esté en la línea 1!
 const express = require('express');
 const connectDB = require('./config/database'); // Asegúrate de que la ruta coincida con el nombre de tu archivo
-
+const numerologyRoutes = require('./routes/numerology.routes');
 // Inicializar la aplicación de Express
 const app = express();
 
