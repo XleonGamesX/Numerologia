@@ -1,6 +1,3 @@
-/**
- * Tabla pitagórica de valores numerológicos para las letras del abecedario.
- */
 const letterValues = {
     a: 1, j: 1, s: 1,
     b: 2, k: 2, t: 2,
@@ -13,7 +10,6 @@ const letterValues = {
     i: 9, r: 9
 };
 
-// Arreglo auxiliar para identificar las vocales fácilmente
 const vowels = ['a', 'e', 'i', 'o', 'u'];
 
 module.exports = { 

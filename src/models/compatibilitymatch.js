@@ -1,35 +1,39 @@
-// respresenta el analisis de la compatiabilidad entre dos usuarios
-// guarda los usuarios comparados, el puntaje y la interpretacion de la ia
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose")
 const compatibilityMatchSchema = new mongoose.Schema(
     {
-        userOne: {
-            type: mongoose.schema.types.objectid,
-            ref: "user",
-            required: true,
+        user1: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
         },
-        userTwo: {
-            type: monogoose.schema.types.objectid,
-            ref: "user",
-            required: true,
+
+        user2: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
         },
-        score:{
+
+        score: {
             type: Number,
             required: true,
+            min: 0,
+            max: 100
         },
-        interpretacion: {
-            typw: String,
-            required: true,
+
+        interpretation: {
+            type: String,
+            required: true
         }
-    
     },
     {
-        timestamp: true,
+        timestamps: true
     }
-)
-
-module.exports = mongoose.model(
-    "compatibilitymatch",
-    compatibilitymatchschema
 );
+
+module.exports =
+    mongoose.models.CompatibilityMatch ||
+    mongoose.model(
+        'CompatibilityMatch',
+        compatibilityMatchSchema
+    );

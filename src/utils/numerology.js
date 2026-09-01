@@ -2,7 +2,6 @@ const { reduceNumber } = require('./reducer');
 const { letterValues, vowels } = require('./nameValue');
 
 /**
- * Calcula el número de "Camino de Vida" a partir de la fecha de nacimiento.
  * @param {string} birthDateString - Fecha en formato YYYY-MM-DD
  */
 const calculateLifePath = (birthDateString) => {

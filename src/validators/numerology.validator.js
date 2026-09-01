@@ -1,40 +1,30 @@
-/**
- * Middleware de validación para el cálculo del perfil numerológico.
- */
-const validateCalculateInput = (req, res, next) => {
-    const { fullName, birthDate } = req.body;
-    const errors = [];
+const { body, validationResult } = require('express-validator');
 
-    // Validar fullName
-    if (!fullName || typeof fullName !== 'string' || fullName.trim().length === 0) {
-        errors.push('El campo "fullName" es obligatorio y debe ser una cadena de texto.');
-    }
+const validateCalculate = [
+    body('fullName')
+        .notEmpty()
+        .withMessage('El nombre completo es obligatorio'),
 
-    // Validar birthDate (Formato YYYY-MM-DD mediante expresión regular)
-    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-    if (!birthDate || !dateRegex.test(birthDate)) {
-        errors.push('El campo "birthDate" es obligatorio y debe tener el formato YYYY-MM-DD.');
-    } else {
-        // Verificar si es una fecha cronológicamente válida
-        const dateObj = new Date(birthDate);
-        if (isNaN(dateObj.getTime())) {
-            errors.push('La fecha de nacimiento ingresada no es una fecha válida.');
+    body('birthDate')
+        .isISO8601()
+        .withMessage('La fecha debe tener formato YYYY-MM-DD'),
+
+    (req, res, next) => {
+
+        const errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                success: false,
+                errors: errors.array()
+            });
         }
-    }
 
-    // Si existen errores, detener la petición y responder con un código 400 (Bad Request)
-    if (errors.length > 0) {
-        return res.status(400).json({
-            success: false,
-            message: 'Error de validación en los datos enviados',
-            errors
-        });
+        next();
     }
+];
 
-    // Si todo está correcto, continuar hacia el controlador
-    next();
-};
 
 module.exports = {
-    validateCalculateInput
+    validateCalculate
 };

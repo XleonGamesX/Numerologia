@@ -1,32 +1,37 @@
-//REPRESENTA EL USUARIO REGISTRADO
+const mongoose = require('mongoose');
 
-const mongoose = require("mongoose")
 const userSchema = new mongoose.Schema(
     {
-        name:{
+        name: {
             type: String,
-
             required: true,
-
-            requiered: true,
-
-            trim: true,
+            trim: true
         },
+
         email: {
             type: String,
             required: true,
             unique: true,
             lowercase: true,
-            trim: true,
+            trim: true
         },
+
         password: {
             type: String,
             required: true,
-            minlength: 6,
+            minlength: 6
+        },
+
+        fecha_nacimiento: {
+            type: Date,
+            required: true
         }
     },
     {
-        timestamps: true,
-    } 
+        timestamps: true
+    }
 );
-module.exports = mongoose.model("user", userSchema);
+
+module.exports =
+    mongoose.models.User ||
+    mongoose.model('User', userSchema);

@@ -1,43 +1,38 @@
-//registra que esta pasando con nuestra API
-//representa los registros de auditoria y monitoreo de la la  API
-//guarda informacion importante de las peticiones realizadas
-const mongoose = require("mongoose");
-const auditlogSchema = new mongoose.Schema(
+const mongoose = require('mongoose');
+
+const auditLogSchema = new mongoose.Schema(
     {
         endpoint: {
-        type: String,
-        required: true,
-    },
+            type: String,
+            required: true
+        },
 
         method: {
-        type: string,
-        enum: ["GET", "POST", "PUT", "PATCH", "DELEATE"],
-        required: true,
-    },
+            type: String,
+            required: true
+        },
 
-        satus_code: {
-        type: number,
-        required: true,
-    },
+        status_code: {
+            type: Number,
+            required: true
+        },
 
-    timestamp: {
-        type: date,
-        required: true,
-        default: date.now,
-    },
+        timestamp: {
+            type: Date,
+            default: Date.now
+        },
 
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "user",
-        required: false,
+        user_id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            default: null
+        }
     },
-},
     {
-        timestamps: true,
-    },
+        timestamps: true
+    }
 );
 
-module.exports = mongoose.model(
-    "AuditoLog",
-    auditlogSchema
-);
+module.exports =
+    mongoose.models.AuditLog ||
+    mongoose.model('AuditLog', auditLogSchema);

@@ -1,29 +1,37 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose');
 
 const readingSchema = new mongoose.Schema(
     {
-        prompt:{
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            required: true
+        },
+
+        prompt: {
             type: String,
-            required: true,
+            required: true
         },
 
         response: {
             type: String,
-            required: true,
+            required: true
         },
 
         type: {
             type: String,
-            enum: ["diria", "general", "anual"],
-            required: true,
+            enum: ['diaria', 'general', 'anual'],
+            required: true
         },
 
         date: {
             type: Date,
-            required: true,
+            default: Date.now
         }
     },
     {
-        timestamps: true,
+        timestamps: true
     }
-)
+);
+
+module.exports = mongoose.model('Reading', readingSchema);
