@@ -12,8 +12,12 @@ const errorMiddleware = require('./middlewares/error.middleware');
 const app = express();
 
 app.use(cors({
-    origin: 'http://localhost:5173'
+    origin: [
+        'http://localhost:5173',
+        'https://numeria-frontend.onrender.com'
+    ]
 }));
+
 
 app.use(express.json());
 
