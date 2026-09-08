@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+
 import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './routes/ProtectedRoute';
 
@@ -15,7 +16,7 @@ import Profile from './pages/Profile';
 export default function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           {/* Rutas públicas */}
           <Route path="/" element={<Home />} />
@@ -72,7 +73,7 @@ export default function App() {
             }
           />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </AuthProvider>
   );
 }
