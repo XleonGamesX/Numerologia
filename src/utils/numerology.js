@@ -1,5 +1,6 @@
 const { reduceNumber } = require('./reducer');
 const { letterValues, vowels } = require('./nameValue');
+// Render deployment fix
 
 /**
  * @param {string} birthDateString - Fecha en formato YYYY-MM-DD
