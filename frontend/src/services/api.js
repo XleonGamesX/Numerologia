@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Instancia central de Axios. Todas las llamadas al backend pasan por aquí.
 const api = axios.create({
-  baseURL: 'http://localhost:3000/api/v1',
+  baseURL: 'https://numerologia-backend-frontend.onrender.com/api/v1',
+
 });
 
 // Antes de cada petición, si existe un token guardado, lo añadimos
