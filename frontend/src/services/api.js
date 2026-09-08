@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Instancia central de Axios. Todas las llamadas al backend pasan por aquí.
 const api = axios.create({
-  baseURL: 'https://numerologia-backend-frontend.onrender.com/api/v1',
+  baseURL: 'https://numeria-backend-frontend.onrender.com/api/v1',
 
 });
 
