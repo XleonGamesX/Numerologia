@@ -1,5 +1,5 @@
 const { reduceNumber } = require('./reducer');
-const { letterValues, vowels } = require('./nameValue');
+const { letterValues, vowels } = require('./namevalue');
 // Render deployment fix
 
 /**
