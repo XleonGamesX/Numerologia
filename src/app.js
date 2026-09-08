@@ -15,20 +15,19 @@ app.use(cors({
     origin: [
         'http://localhost:5173',
         'https://numeria-frontend.onrender.com'
-    ]
+    ],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
-
 
 app.use(express.json());
 
 app.use(auditMiddleware);
 
 app.use('/api/v1/auth', authRoutes);
-
 app.use('/api/v1/numerology', numerologyRoutes);
-
 app.use('/api/v1/readings', readingsRoutes);
-
 app.use('/api/v1/compatibility', compatibilityRoutes);
 
 app.get('/', (req, res) => {
