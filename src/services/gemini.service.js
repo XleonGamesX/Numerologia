@@ -4,11 +4,11 @@ const generateContent = async (prompt) => {
 try {
 console.log('----brother mira aki----');
 console.log('ENVIANDO PROMPT A GEMINI');
-console.log('MODELO: gemini-3.6-flash');
+console.log('MODELO: gemini-3.5-flash-lite');
 console.log('----brother mira aki----');
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.5-flash-lite',
         contents: prompt
     });
 
